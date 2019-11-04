@@ -29,7 +29,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "format": "prettier --write src/**/*.{js,json,css,scss}",
-    "lint": "eslint src"
+    "lint": "eslint src",
+    "ci": "npm run lint && cross-env CI=true"
   },
   "eslintConfig": {
     "extends": "react-app"
