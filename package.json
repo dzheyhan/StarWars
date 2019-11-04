@@ -60,7 +60,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run lint"
+      "pre-commit": "cross-env CI=true lint-staged"
     }
   },
   "lint-staged": {
