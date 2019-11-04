@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import { useQuery } from '@apollo/react-hooks';
 import { gql } from 'apollo-boost';
-import { Button, Col, Row, Image } from 'react-bootstrap';
+import { Col, Row, Image } from 'react-bootstrap';
 
 const EPISODE = gql`
   query {
