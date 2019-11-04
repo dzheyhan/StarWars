@@ -67,8 +67,7 @@
     "src/**/*.js": [
       "npm run lint",
       "prettier --write",
-      "eslint --max-warnings=0",
-      "git add"
+      "eslint --max-warnings=0"
     ]
   }
 }
