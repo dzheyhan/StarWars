@@ -68,7 +68,6 @@
       "npm run lint",
       "prettier --write",
       "eslint --max-warnings=0",
-      "npm test --bail --findRelatedTests",
       "git add"
     ]
   }
