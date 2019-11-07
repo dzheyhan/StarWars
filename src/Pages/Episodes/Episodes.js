@@ -1,10 +1,14 @@
 import React from 'react';
-import { Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useQuery } from '@apollo/react-hooks';
-import { gql } from 'apollo-boost';
-import { Col, Row, Image } from 'react-bootstrap';
 
-const EPISODE = gql`
+import { gql } from 'apollo-boost';
+import { Col, Row, Card } from 'react-bootstrap';
+import Logout from '../Logout/Logout';
+import styles from './Episodes.module.scss';
+import { StyledCard } from '../../components/Card';
+
+const EPISODES = gql`
   query {
     allEpisodes(first: 100) {
       edges {
@@ -23,51 +27,50 @@ const EPISODE = gql`
 `;
 
 function Episodes() {
-  const { data, loading, error } = useQuery(EPISODE);
+  const { data, loading, error } = useQuery(EPISODES);
   if (loading) return <p>loading</p>;
 
   if (error) {
-    localStorage.setItem('token', null);
-    return <Redirect to="/login" />;
+    return <Logout />;
   }
-
-  const t = {
-    '-webkit-box-orient': 'vertical',
-    display: '-webkit-box',
-    'max-width': '100%',
-    'overflow-x': 'hidden',
-    'overflow-y': 'hidden',
-    'text-overflow': 'ellipsis',
-    '-webkit-line-clamp': '7',
-  };
 
   const allEpisodes = data['allEpisodes']['edges'];
 
-  const listEpisodes = allEpisodes.map(episode => (
-    <Col md={{ span: 4 }}>
-      <div
-        className="wrap"
-        style={{ 'max-width': '200px', 'margin-bottom': '30px' }}
-      >
-        <div className="img">
-          <Image
-            style={{ width: '100%' }}
-            src={episode['node']['image']}
-            rounded
-          />
-        </div>
-        <h5>{episode['node']['title']}</h5>
-        <div>
-          <span style={t}>{episode['node']['openingCrawl']}</span>
-        </div>
-      </div>
-    </Col>
-  ));
-
   return (
     <React.Fragment>
-      <Row className="mt-5">{listEpisodes}</Row>
+      <Row>
+        {allEpisodes.map(episode => (
+          <Col md={{ span: 4 }} sm={{ span: 6 }} key={episode['node']['id']}>
+            <EpisodeCard
+              id={episode['node']['id']}
+              img={episode['node']['image']}
+              title={episode['node']['title']}
+              content={episode['node']['openingCrawl']}
+            />
+          </Col>
+        ))}
+      </Row>
     </React.Fragment>
+  );
+}
+
+function EpisodeCard(props) {
+  return (
+    <Link
+      to={{
+        pathname: /episodes/ + props.id,
+      }}
+    >
+      <StyledCard className={styles.episodeCardWrap}>
+        <Card.Img variant="top" src={props.img} />
+        <Card.Body>
+          <Card.Title>{props.title}</Card.Title>
+          <Card.Text>
+            <span className={styles.episodeCardContent}>{props.content}</span>
+          </Card.Text>
+        </Card.Body>
+      </StyledCard>
+    </Link>
   );
 }
 

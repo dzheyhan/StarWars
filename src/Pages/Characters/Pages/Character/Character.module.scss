@@ -1,0 +1,9 @@
+.characterCartWrap {
+  max-width: 250px;
+
+  @media only screen and (max-width: 800px) {
+    & {
+      margin: auto;
+    }
+  }
+}

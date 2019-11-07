@@ -1,98 +1,91 @@
+const colors = {
+  yellow: '#FFE300',
+  lightBlue: '#4BD5EE',
+  black: '#000',
+  white: '#FFF',
+};
+
 const themes = {
   light: {
     colors: {
-      bg: '#f9fafc',
+      bg: '#E8EAED',
       text: '#3c4858',
+      colors,
     },
     cards: {
-      primary: {
-        border: '1px solid',
-        borderRadius: 3,
-        borderColor: '#e5e9f2',
-        backgroundColor: '#fff',
-      },
+      borderColor: '#E5E9F2',
+      backgroundColor: '#fff',
     },
     buttons: {
-      primary: {
-        color: 'inherit',
-        backgroundColor: '#ffa60b',
-        cursor: 'pointer',
+      solid: {
+        backgroundColor: '#000',
+        borderColor: '#E5E9F2',
+        color: '#FFE300',
       },
       outline: {
+        borderColor: '#E5E9F2',
+        backgroundColor: '#EFF2F7',
         color: 'inherit',
-        border: '1px solid',
-        borderColor: '#e5e9f2',
-        backgroundColor: '#eff2f7',
-        cursor: 'pointer',
-      },
-      link: {
-        padding: 0,
-        color: 'inherit',
-        backgroundColor: 'transparent',
-        cursor: 'pointer',
       },
     },
     inputs: {
-      primary: {
-        color: '#3c4858',
-        borderColor: '#e5e9f2',
-        backgroundColor: '#eff2f7',
-      },
+      backgroundColor: '#EFF2F7',
+      borderColor: '#E5E9F2',
+      color: '#3C4858',
     },
-    badges: {
-      primary: {
-        color: '#fff',
-        borderColor: '#ff7849',
-        backgroundColor: '#ff7849',
-      },
+    appBar: {
+      backgroundColor: '#000',
+      borderColor: '#333',
+      color: '#4BD5EE',
+    },
+    primaryHeading: {
+      color: '#4BD5EE',
+    },
+    radar: {
+      color: '#4BD5EE',
+      backgroundColor: '#000',
+      grid: '#3C4858',
     },
   },
   dark: {
     colors: {
-      bg: '#8492a6',
-      text: '#fff',
+      bg: '#000',
+      text: '#abb1ba',
+      colors,
     },
     cards: {
-      primary: {
-        border: '1px solid',
-        borderColor: '#3c4858',
-        borderRadius: 3,
-        backgroundColor: '#1f2d3d',
-      },
+      borderColor: '#3C4858',
+      backgroundColor: '#333',
     },
     buttons: {
-      primary: {
-        color: '#fff',
-        backgroundColor: '#ffa60b',
-        cursor: 'pointer',
+      solid: {
+        backgroundColor: '#4BD5EE',
+        borderColor: 'none',
+        color: '#FFE300',
       },
       outline: {
-        color: '#fff',
-        border: '1px solid',
-        borderColor: '#3c4858',
-        backgroundColor: '#273444',
-        cursor: 'pointer',
-      },
-      link: {
-        padding: 0,
+        borderColor: '#3C4858',
+        backgroundColor: '#333',
         color: 'inherit',
-        backgroundColor: 'transparent',
-        cursor: 'pointer',
       },
     },
     inputs: {
-      primary: {
-        color: '#fff',
-        borderColor: '#3c4858',
-        backgroundColor: '#273444',
-      },
+      backgroundColor: '#FFF',
+      borderColor: '#3C4858',
+      color: '#273444',
     },
-    badges: {
-      primary: {
-        color: '#fff',
-        borderColor: '#ff7849',
-        backgroundColor: '#ff7849',
-      },
+    appBar: {
+      backgroundColor: '#333',
+      borderColor: '#3C4858',
+      color: '#4BD5EE',
+    },
+    primaryHeading: {
+      color: '#FFE300',
+    },
+    radar: {
+      color: '#FFE300',
+      backgroundColor: '#000',
+      grid: '#333',
     },
   },
 };

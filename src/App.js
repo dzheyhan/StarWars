@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
+import './scss/main.scss';
+import 'bootstrap/scss/bootstrap.scss';
+
 import { ApolloProvider } from '@apollo/react-hooks';
 import Login from './Pages/Login/Login';
 import Character from './Pages/Characters/Pages/Character/Character';
 import Characters from './Pages/Characters/Characters';
 import Episodes from './Pages/Episodes/Episodes';
 import Episode from './Pages/Episodes/Pages/Episode/Episode';
+import Starship from './Pages/Starships/Starship';
 import { ThemeProvider } from 'styled-components';
 import {
   BrowserRouter as Router,
@@ -13,36 +17,39 @@ import {
   Redirect,
 } from 'react-router-dom';
 import themes from './components/themes';
-import './scss/main.scss';
-import 'bootstrap/scss/bootstrap.scss';
+
 import { AUTHENTICATED_QUERY } from './client/auth';
-import GlobalStyle from './components/global-style';
+import GlobalStyle from './components/globalStyle';
 import client from './client/apllo-client';
-import Header from './components/header';
+import Header from './components/Header/header';
 import { useQuery } from '@apollo/react-hooks';
 import { Container } from 'react-bootstrap';
+import Logout from './Pages/Logout/Logout';
 
 function App() {
   const [theme, setTheme] = useState('light');
 
   const toggleTheme = () => {
-    if (theme === 'light') {
-      setTheme('dark');
-    } else {
-      setTheme('light');
-    }
+    const newTheme = theme === 'light' ? 'dark' : 'light';
+    localStorage.setItem('theme', newTheme);
+    setTheme(newTheme);
   };
+
+  const storageTheme = localStorage.getItem('theme');
 
   return (
     <ApolloProvider client={client}>
       <Router>
-        <ThemeProvider theme={themes[theme]}>
+        <ThemeProvider theme={themes[storageTheme || theme]}>
           <GlobalStyle />
-          <Header />
+          <Header setTheme={toggleTheme} />
           <Container>
             <Switch>
               <Route path="/login">
                 <Login setTheme={toggleTheme} />
+              </Route>
+              <Route path="/logout">
+                <Logout />
               </Route>
               <PrivateRoute path="/characters/:id">
                 <Character />
@@ -55,6 +62,9 @@ function App() {
               </Route>
               <PrivateRoute path="/episodes">
                 <Episodes />
+              </PrivateRoute>
+              <PrivateRoute path="/starships/:id">
+                <Starship />
               </PrivateRoute>
               <Route path="/">
                 <Redirect to="/episodes" />
