@@ -77,7 +77,7 @@ function LoginForm(props) {
             SWAPP
           </h1>
           <div className="mt-3 mb-3">
-            <StyledCard className="pb-3 pt-3">
+            <StyledCard className="pb-3 pt-4">
               <Form className="pr-5 pl-5">
                 {props.error ? (
                   <p className="text-danger">{props.error}</p>

@@ -1,12 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useQuery } from '@apollo/react-hooks';
-
 import { gql } from 'apollo-boost';
 import { Col, Row, Card } from 'react-bootstrap';
 import Logout from '../Logout/Logout';
 import styles from './Episodes.module.scss';
 import { StyledCard } from '../../components/Card';
+import { StyledTitle } from '../../components/styled';
 
 const EPISODES = gql`
   query {
@@ -64,7 +64,9 @@ function EpisodeCard(props) {
       <StyledCard className={styles.episodeCardWrap}>
         <Card.Img variant="top" src={props.img} />
         <Card.Body>
-          <Card.Title>{props.title}</Card.Title>
+          <Card.Title className="colorLightBlue">
+            <StyledTitle>{props.title}</StyledTitle>
+          </Card.Title>
           <Card.Text>
             <span className={styles.episodeCardContent}>{props.content}</span>
           </Card.Text>

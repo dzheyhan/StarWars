@@ -8,6 +8,7 @@ import { RowCard, RowCardImg } from '../../../../components/Card';
 import PeopleCard from '../../../../components/PeopleCard';
 import Logout from '../../../Logout/Logout';
 import SwButton from '../../../../components/Button';
+import { StyledTitle } from '../../../../components/styled';
 
 const EPISODE = gql`
   query EpisodeQuery($episodeId: ID!, $first: Int, $after: String) {
@@ -139,11 +140,16 @@ function EpisodeDescriptionCard(props) {
         <Card.Text />
         <p className="mb-0">
           <span>Director: </span>
-          <span>{props.director}</span>
+
+          <StyledTitle>
+            <span>{props.director}</span>
+          </StyledTitle>
         </p>
         <p>
           <span>Release date: </span>
-          <span>{props.releaseDate}</span>
+          <StyledTitle>
+            <span>{props.releaseDate}</span>
+          </StyledTitle>
         </p>
       </Card.Body>
     </RowCard>
@@ -155,7 +161,9 @@ function TargetEpisodeCard(props) {
     <RowCard>
       <RowCardImg variant="left" src={props.img} maxwidth="180px" />
       <Card.Body>
-        <h2>{props.title}</h2>
+        <StyledTitle>
+          <h2>{props.title}</h2>
+        </StyledTitle>
         <h3>{props.subTitle}</h3>
       </Card.Body>
     </RowCard>

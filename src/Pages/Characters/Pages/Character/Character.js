@@ -6,6 +6,7 @@ import { Link, useParams } from 'react-router-dom';
 import { RowCard, RowCardImg } from '../../../../components/Card';
 import Logout from '../../../Logout/Logout';
 import styles from './Character.module.scss';
+import { StyledTitle } from '../../../../components/styled';
 
 const Person = gql`
   query PersonQuery($id: ID!, $first: Int!) {
@@ -63,13 +64,24 @@ function Character() {
               <Card.Body>
                 <h6>{person.name}</h6>
                 <Card.Img varinat="top" src={person.image} />
-                <span>height: {person.height}</span>
+                <span>
+                  height:
+                  <StyledTitle>{person.height}</StyledTitle>
+                </span>
                 <br />
-                <span>Weight: {person.mass}</span>
+                <span>
+                  Weight:
+                  <StyledTitle>{person.mass}</StyledTitle>
+                </span>
                 <br />
-                <span>Species: {person.species.name} </span>
+                <span>
+                  Species: <StyledTitle>{person.species.name} </StyledTitle>
+                </span>
                 <br />
-                <span>Home world: {person.homeworld.name}</span>
+                <span>
+                  Home world:{' '}
+                  <StyledTitle> {person.homeworld.name} </StyledTitle>{' '}
+                </span>
               </Card.Body>
             </RowCard>
           </div>
