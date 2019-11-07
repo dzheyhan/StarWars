@@ -48,12 +48,29 @@ const GlobalStyle = createGlobalStyle`
     color: #3C4858;
   }
   
-  cursorPointer{
+  .colorYellow{
+    color: #FFE300;
+  }
+  
+  .colorLightBlue{
+     color: #4BD5EE;
+  }
+  
+  .colorBlack{
+    color: #000;
+  }
+  
+  .colorWhite{
+    color:#FFF;
+  }
+
+  .cursorPointer{
     cursor: pointer;
   }
   
   h1, h2, h3, h3, m4, h5, h6{
     font-family: "DistantGalaxy", "Star Jedi", "Roboto", "Oxygen";
+  }
   }
 `;
 

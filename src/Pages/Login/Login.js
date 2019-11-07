@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
-import { Button, Container, Row, Col, Form } from 'react-bootstrap';
+import { Container, Row, Col, Form } from 'react-bootstrap';
 import { gql } from 'apollo-boost';
 import { useApolloClient, useMutation } from '@apollo/react-hooks';
 import { Redirect } from 'react-router-dom';
+import { StyledCard } from '../../components/Card';
+import SwButton from '../../components/Button';
 
 const LOGIN_MUTATION = gql`
   mutation signIn($email: String!, $password: String!) {
@@ -67,36 +69,45 @@ function LoginForm(props) {
   return (
     <Container>
       <Row className="mt-5">
-        <Col md={{ span: 6, offset: 3 }}>
-          <h1 className="text-center" onClick={() => props.setTheme()}>
+        <Col md={{ span: 6, offset: 3 }} className="bg-dark">
+          <h1
+            className="text-center cursorPointer colorYellow"
+            onClick={() => props.setTheme()}
+          >
             SWAPP
           </h1>
-          <div className="mt-3">
-            <Form className="pr-5 pl-5">
-              {props.error ? <p className="text-danger">{props.error}</p> : ''}
+          <div className="mt-3 mb-3">
+            <StyledCard className="pb-3 pt-3">
+              <Form className="pr-5 pl-5">
+                {props.error ? (
+                  <p className="text-danger">{props.error}</p>
+                ) : (
+                  ''
+                )}
 
-              <Form.Group controlId="formBasicEmail">
-                <Form.Control
-                  onChange={setEmail}
-                  value={state.email}
-                  type="email"
-                  placeholder="Enter"
-                />
-              </Form.Group>
-              <Form.Group controlId="formBasicPassword">
-                <Form.Control
-                  onChange={setPassword}
-                  value={state.password}
-                  type="password"
-                  placeholder="Password"
-                />
-              </Form.Group>
-              <div className="text-right">
-                <Button variant="primary" type="submit" onClick={handleSubmit}>
-                  Submit
-                </Button>
-              </div>
-            </Form>
+                <Form.Group controlId="formBasicEmail">
+                  <Form.Control
+                    onChange={setEmail}
+                    value={state.email}
+                    type="email"
+                    placeholder="Enter"
+                  />
+                </Form.Group>
+                <Form.Group controlId="formBasicPassword">
+                  <Form.Control
+                    onChange={setPassword}
+                    value={state.password}
+                    type="password"
+                    placeholder="Password"
+                  />
+                </Form.Group>
+                <div className="text-right">
+                  <SwButton type="submit" onClick={handleSubmit}>
+                    Submit
+                  </SwButton>
+                </div>
+              </Form>
+            </StyledCard>
           </div>
         </Col>
       </Row>

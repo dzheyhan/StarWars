@@ -1,10 +1,11 @@
 import React from 'react';
-import { Button, Col, Row } from 'react-bootstrap';
+import { Col, Row } from 'react-bootstrap';
 import { gql } from 'apollo-boost';
 import { useQuery } from '@apollo/react-hooks';
 import { Link } from 'react-router-dom';
 import PeopleCard from '../../components/PeopleCard';
 import Logout from '../Logout/Logout';
+import SwButton from '../../components/Button';
 
 const People = gql`
   query AllPeopleQuery($first: Int!, $after: String) {
@@ -84,7 +85,7 @@ function Characters() {
       </Row>
       <Col className="text-center">
         {pageInfo.hasNextPage && (
-          <Button onClick={loadMorePeoples}>Load More</Button>
+          <SwButton onClick={loadMorePeoples}>Load More</SwButton>
         )}
       </Col>
     </React.Fragment>
