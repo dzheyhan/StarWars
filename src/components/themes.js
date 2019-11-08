@@ -3,24 +3,30 @@ const colors = {
   lightBlue: '#4BD5EE',
   black: '#000',
   white: '#FFF',
+  grayOne: '#3c4858',
 };
 
 const themes = {
   light: {
+    themeColors: {
+      ...colors,
+    },
     colors: {
       bg: '#E8EAED',
-      text: '#3c4858',
-      colors,
+      text: colors['grayOne'],
+      textOne: colors['yellow'],
+      textTow: colors['lightBlue'],
+      textTree: colors['grayOne'],
     },
     cards: {
       borderColor: '#E5E9F2',
-      backgroundColor: '#fff',
+      backgroundColor: colors['white'],
     },
     buttons: {
       solid: {
-        backgroundColor: '#000',
+        backgroundColor: colors['black'],
         borderColor: '#E5E9F2',
-        color: '#FFE300',
+        color: colors['yellow'],
       },
       outline: {
         borderColor: '#E5E9F2',
@@ -34,24 +40,29 @@ const themes = {
       color: '#3C4858',
     },
     appBar: {
-      backgroundColor: '#000',
+      backgroundColor: colors['black'],
       borderColor: '#333',
-      color: '#4BD5EE',
+      color: colors['lightBlue'],
     },
     primaryHeading: {
-      color: '#4BD5EE',
+      color: colors['lightBlue'],
     },
     radar: {
-      color: '#4BD5EE',
-      backgroundColor: '#000',
+      color: colors['lightBlue'],
+      backgroundColor: colors['black'],
       grid: '#3C4858',
     },
   },
   dark: {
+    themeColors: {
+      ...colors,
+    },
     colors: {
-      bg: '#000',
+      bg: colors['black'],
       text: '#abb1ba',
-      colors,
+      textOne: colors['lightBlue'],
+      textTow: colors['yellow'],
+      textTree: colors['lightBlue'],
     },
     cards: {
       borderColor: '#3C4858',
@@ -59,9 +70,9 @@ const themes = {
     },
     buttons: {
       solid: {
-        backgroundColor: '#4BD5EE',
+        backgroundColor: colors['lightBlue'],
         borderColor: 'none',
-        color: '#FFE300',
+        color: colors['yellow'],
       },
       outline: {
         borderColor: '#3C4858',
@@ -77,17 +88,17 @@ const themes = {
     appBar: {
       backgroundColor: '#333',
       borderColor: '#3C4858',
-      color: '#4BD5EE',
+      color: colors['lightBlue'],
     },
     primaryHeading: {
-      color: '#FFE300',
+      color: colors['yellow'],
     },
     radar: {
-      color: '#FFE300',
-      backgroundColor: '#000',
+      color: colors['yellow'],
+      backgroundColor: colors['black'],
       grid: '#333',
     },
   },
 };
 
-export default themes;
+export { themes, colors };

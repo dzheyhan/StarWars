@@ -6,7 +6,6 @@ import { Col, Row, Card } from 'react-bootstrap';
 import Logout from '../Logout/Logout';
 import styles from './Episodes.module.scss';
 import { StyledCard } from '../../components/Card';
-import { StyledTitle } from '../../components/styled';
 
 const EPISODES = gql`
   query {
@@ -65,7 +64,7 @@ function EpisodeCard(props) {
         <Card.Img variant="top" src={props.img} />
         <Card.Body>
           <Card.Title className="colorLightBlue">
-            <StyledTitle>{props.title}</StyledTitle>
+            <span className="swTextTwo">{props.title}</span>
           </Card.Title>
           <Card.Text>
             <span className={styles.episodeCardContent}>{props.content}</span>

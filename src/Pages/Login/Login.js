@@ -35,11 +35,13 @@ function Login(props) {
   }
 
   return (
-    <LoginForm
-      setTheme={props.setTheme}
-      login={login}
-      error={state['loginError']}
-    ></LoginForm>
+    <div>
+      <LoginForm
+        setTheme={props.setTheme}
+        login={login}
+        error={state['loginError']}
+      ></LoginForm>
+    </div>
   );
 }
 
@@ -69,7 +71,7 @@ function LoginForm(props) {
   return (
     <Container>
       <Row className="mt-5">
-        <Col md={{ span: 6, offset: 3 }} className="bg-dark">
+        <Col md={{ span: 6, offset: 3 }} className="swBlackBg">
           <h1
             className="text-center cursorPointer colorYellow"
             onClick={() => props.setTheme()}
