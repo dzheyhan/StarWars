@@ -46,30 +46,42 @@ function Starship() {
     <React.Fragment>
       <Row>
         <Col md={{ span: 12 }} className="text-center bt-5 mb-5">
-          <h3>{starship.name}</h3>
-          <h5>{starship.model}</h5>
+          <h3 className="swTextTwo">{starship.name}</h3>
+          <h5 className="swTextTree">{starship.model}</h5>
         </Col>
         <Col md={{ span: 3, offset: 2 }}>
           <CardWrap>
             <RowCard>
               <Card.Body>
-                <h6>Class: {starship.starshipClass}</h6>
+                <h6 className="swTextTwo">Class: {starship.starshipClass}</h6>
                 <Card.Img varinat="top" src={starship.image} />
-                <span>Cost: {starship.cost} credits </span>
-                <br />
-                <span>Crew: {starship.crew}</span>
-                <br />
                 <span>
-                  Max Atmospheric Speed: {starship.maxAtmosphericSpeed}{' '}
+                  <span className="swTextTree">Cost:</span>
+                  <span className="swTextTwo">{starship.cost} credits </span>
                 </span>
                 <br />
-                <span>Hyperdriver Rating: {starship.hyperdriveRating}</span>
+                <span>
+                  <span className="swTextTree">Crew:</span>
+                  <span className="swTextTwo">{starship.crew}</span>
+                </span>
+                <br />
+                <span>
+                  <span className="swTextTree">Max Atmospheric Speed:</span>
+                  <span className="swTextTwo">
+                    {starship.maxAtmosphericSpeed}
+                  </span>
+                </span>
+                <br />
+                <span>
+                  <span className="swTextTree">Hyperdriver Rating:</span>
+                  <span className="swTextTwo">{starship.hyperdriveRating}</span>
+                </span>
               </Card.Body>
             </RowCard>
           </CardWrap>
         </Col>
         <Col md={{ span: 6 }}>
-          <h4>Compared to Starship Class Max</h4>
+          <h4 className="swTextTree">Compared to Starship Class Max</h4>
           <hr />
           <h1>Todo</h1>
         </Col>

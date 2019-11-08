@@ -70,8 +70,32 @@ const GlobalStyle = createGlobalStyle`
   
   h1, h2, h3, h3, h4, h5, h6{
     font-family: "DistantGalaxy", "Star Jedi", "Roboto", "Oxygen";
-    color: ${props => props.theme.primaryHeading.color};;
   }
+  
+  .swTextOne{
+    color: ${props => props.theme.colors.textOne};
+  }
+  .swTextTwo{
+    color: ${props => props.theme.colors.textTow};
+  }
+  .swTextTree{
+    color: ${props => props.theme.colors.textTree};
+  }
+  
+  .swYellow{
+   color: #FFE300;
+  }
+  .swLightBlue{
+   color: #4BD5EE
+  }
+  .swBlack{ 
+    color: #000 
+  }
+  .swWhite{
+   color: #FFF
+  }
+  .swBlackBg{   
+    background-color: #000000 !important;
   }
 `;
 

@@ -16,7 +16,7 @@ import {
   Route,
   Redirect,
 } from 'react-router-dom';
-import themes from './components/themes';
+import { themes } from './components/themes';
 
 import { AUTHENTICATED_QUERY } from './client/auth';
 import GlobalStyle from './components/globalStyle';
